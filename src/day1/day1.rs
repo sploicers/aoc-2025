@@ -38,16 +38,16 @@ pub fn part2() -> usize {
 
 		match dir {
 			Direction::Left => {
-				pos = (pos - dist).rem_euclid(NUM_POSITIONS + 1);
+				pos = (pos - dist).rem_euclid(NUM_POSITIONS);
 
-				if pos >= old_pos {
+				if pos == 0 || (pos > old_pos && old_pos != 0) {
 					sum += 1;
 				}
 			}
 			Direction::Right => {
 				pos = (pos + dist).rem_euclid(NUM_POSITIONS);
 
-				if pos <= old_pos {
+				if pos == 0 || pos < old_pos {
 					sum += 1;
 				}
 			}
